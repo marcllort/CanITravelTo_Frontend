@@ -1,19 +1,9 @@
-
 export function submit() {
-    console.log("perro!")
-
-   /* var unirest = require('unirest');
-
-    unirest
-        .('http://35.180.85.2:8080/travel')
-        .headers({'Accept': 'application/json', 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'})
-        .send({ "destination": "Spain", "origin": "France" })
-        .then((response) => {
-            console.log(response.body)
-        })*/
 
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "text/plain");
+    myHeaders.append("Access-Control-Allow-Origin", "*");
+    myHeaders.append("Access-Control-Allow-Headers", "access-control-allow-origin, access-control-allow-headers");
 
     var raw = "{\"destination\": \"Spain\",\"origin\": \"France\"}";
 
@@ -24,8 +14,8 @@ export function submit() {
         redirect: 'follow'
     };
 
-fetch("http://35.180.85.2:8080/travel", requestOptions)
-    .then(response => response.text())
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error));
+    fetch("https://canitravelto.wtf/travel", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
 }
