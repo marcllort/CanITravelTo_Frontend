@@ -1,13 +1,15 @@
 export function submit() {
 
-    var myHeaders = new Headers();
+    const origin = document.getElementById('countrySelectorId2').value;
+    const destination = document.getElementById('countrySelectorId4').value;
+    const myHeaders = new Headers();
     myHeaders.append("Content-Type", "text/plain");
     myHeaders.append("Access-Control-Allow-Origin", "*");
     myHeaders.append("Access-Control-Allow-Headers", "access-control-allow-origin, access-control-allow-headers");
 
-    var raw = "{\"destination\": \"Spain\",\"origin\": \"France\"}";
+    const raw = "{\"destination\": \"" + destination + "\",\"origin\": \"" + origin + "\"}";
 
-    var requestOptions = {
+    const requestOptions = {
         method: 'POST',
         headers: myHeaders,
         body: raw,
