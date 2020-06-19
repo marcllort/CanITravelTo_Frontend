@@ -17,7 +17,22 @@ export function submit() {
     };
 
     fetch("https://canitravelto.wtf/travel", requestOptions)
-        .then(response => response.text())
-        .then(result => console.log(result))
+        .then(response => {
+            response.json().then(json => {
+                console.log(response);
+
+
+                document.getElementById('infoCountry').innerHTML= `
+                    <h5>` + "Origin: " + json.origin + `</h5>
+                    <h5>` + "Destination: " + json.destination + `</h5>
+                    <h5>` + "Allowed: " + json.allowed + `</h5>
+                    <h5>` + "Info: " + json.info + `</h5>
+                    <h5>` + "Passport: " + json.passport + `</h5>
+              `;
+
+            })
+        })
         .catch(error => console.log('error', error));
+
+
 }

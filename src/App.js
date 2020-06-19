@@ -25,6 +25,7 @@ function App() {
                 <Button variant="contained" color="primary" onClick={() => submit()}>
                     Submit
                 </Button>
+                <div id="infoCountry"></div>
             </header>
         </div>
     );
